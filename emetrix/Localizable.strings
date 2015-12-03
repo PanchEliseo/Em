@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  emetrix
+
+  Created by Patricia Blanco on 13/07/15.
+  Copyright (c) 2015 evolve. All rights reserved.
+*/
+
+
+"EMTitleMessageError" = "Lo sentimos";
+"EMTitleMessagePasswordOrUserNil" = "Por favor ingresa tu usuario y contraseña.";
+"EMTitleButtonCancel" = "Cancelar";
+"EMTitleSpinnerLogin" = "Validando credenciales";
+"EMTitleSpinnerDownload" = "Descargando la información";
+"EMTitleCheckIn" = "Check In";
+"EMTitleCheckOut" = "Check Out";
+
+
+

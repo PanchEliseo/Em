@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="14F1021" minimumToolsVersion="Automatic">
+    <entity name="EMCapacitacion" representedClassName="EMCapacitacion" syncable="YES">
+        <attribute name="comentario" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlArchivo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlThumb" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="emCategoriaCapacitacion" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EMCategoriaCapacitacion" inverseName="emCapacitaciones" inverseEntity="EMCategoriaCapacitacion" syncable="YES"/>
+        <relationship name="emCuenta" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EMCuenta" inverseName="emCapacitaciones" inverseEntity="EMCuenta" syncable="YES"/>
+    </entity>
+    <entity name="EMCategoria" representedClassName="EMCategoria" syncable="YES">
+        <attribute name="idCategoria" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="emProductos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EMProducto" inverseName="emCategoria" inverseEntity="EMProducto" syncable="YES"/>
+    </entity>
+    <entity name="EMCategoriaCapacitacion" representedClassName="EMCategoriaCapacitacion" syncable="YES">
+        <attribute name="categoria" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="emCapacitaciones" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EMCapacitacion" inverseName="emCategoriaCapacitacion" inverseEntity="EMCapacitacion" syncable="YES"/>
+    </entity>
+    <entity name="EMCuenta" representedClassName="EMCuenta" syncable="YES">
+        <attribute name="activa" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="capacitaciones" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="descargaSondeosOnline" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="filtroCategoria" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="filtroMarca" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gps" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="idCuenta" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="indicadoresRendimiento" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nuevaTienda" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="productos" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="productosXTienda" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="respuestasXSondeo" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="sondeos" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="sondeosXTienda" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="tiendas" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="tiendasXdia" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="version" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="visitaExtra" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="emCapacitaciones" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EMCapacitacion" inverseName="emCuenta" inverseEntity="EMCapacitacion" syncable="YES"/>
+        <relationship name="emMensajes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EMMensajes" inverseName="emCuenta" inverseEntity="EMMensajes" syncable="YES"/>
+        <relationship name="emPendientes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EMPendiente" inverseName="emCuenta" inverseEntity="EMPendiente" syncable="YES"/>
+        <relationship name="emProductos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EMProducto" inverseName="emCuentas" inverseEntity="EMProducto" syncable="YES"/>
+        <relationship name="emSondeos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EMSondeo" inverseName="emCuentas" inverseEntity="EMSondeo" syncable="YES"/>
+        <relationship name="emTiendas" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EMTienda" inverseName="emCuentas" inverseEntity="EMTienda" syncable="YES"/>
+        <relationship name="emUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EMUser" inverseName="emCuentas" inverseEntity="EMUser" syncable="YES"/>
+        <relationship name="emVersion" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="EMVersion" inverseName="emCuenta" inverseEntity="EMVersion" syncable="YES"/>
+    </entity>
+    <entity name="EMMarca" representedClassName="EMMarca" syncable="YES">
+        <attribute name="idMarca" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="emProductos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EMProducto" inverseName="emMarcas" inverseEntity="EMProducto" syncable="YES"/>
+    </entity>
+    <entity name="EMMensajes" representedClassName="EMMensajes" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="mensaje" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tipo" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="titulo" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="emCuenta" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EMCuenta" inverseName="emMensajes" inverseEntity="EMCuenta" syncable="YES"/>
+    </entity>
+    <entity name="EMPendiente" representedClassName="EMPendiente" syncable="YES">
+        <attribute name="bateria" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bluetooth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="brillo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cadenaPendiente" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="comentariosFoto" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="conexion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="consecutivo" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateSending" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="datos" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="determinanteGPS" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="estatus" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="gps" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hotspot" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idCategoriaFoto" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idNuevaTienda" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idPendiente" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idSondeo" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="latitud" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitud" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="opciones_foto" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sku" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tag" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tipo" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="visitaNombre" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="emCuenta" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EMCuenta" inverseName="emPendientes" inverseEntity="EMCuenta" syncable="YES"/>
+    </entity>
+    <entity name="EMPregunta" representedClassName="EMPregunta" syncable="YES">
+        <attribute name="idParent" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idPregunta" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="obligatorio" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="respuesta" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="texto" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tipo" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="emRespuestas" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EMRespuesta" inverseName="emPregunta" inverseEntity="EMRespuesta" syncable="YES"/>
+        <relationship name="emRespuestasUsuario" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EMRespuestasUsuario" inverseName="emPregunta" inverseEntity="EMRespuestasUsuario" syncable="YES"/>
+        <relationship name="emSondeo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EMSondeo" inverseName="emPreguntas" inverseEntity="EMSondeo" syncable="YES"/>
+    </entity>
+    <entity name="EMProducto" representedClassName="EMProducto" syncable="YES">
+        <attribute name="cantidad" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="capturado" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="descripcion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idSondeo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="precio" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="precioMax" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="precioMin" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="precioProm" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="sku" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlImg" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="emCategoria" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EMCategoria" inverseName="emProductos" inverseEntity="EMCategoria" syncable="YES"/>
+        <relationship name="emCuentas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EMCuenta" inverseName="emProductos" inverseEntity="EMCuenta" syncable="YES"/>
+        <relationship name="emMarcas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EMMarca" inverseName="emProductos" inverseEntity="EMMarca" syncable="YES"/>
+        <relationship name="emTiendas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EMTienda" inverseName="emProductos" inverseEntity="EMTienda" syncable="YES"/>
+    </entity>
+    <entity name="EMPull" representedClassName="EMPull" syncable="YES">
+        <attribute name="estado" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="idPull" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="emRespuestasUsuario" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EMRespuestasUsuario" inverseName="emPull" inverseEntity="EMRespuestasUsuario" syncable="YES"/>
+        <relationship name="emSondeo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EMSondeo" inverseName="emPull" inverseEntity="EMSondeo" syncable="YES"/>
+    </entity>
+    <entity name="EMRespuesta" representedClassName="EMRespuesta" syncable="YES">
+        <attribute name="idRespuesta" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="respuesta" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="emPregunta" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EMPregunta" inverseName="emRespuestas" inverseEntity="EMPregunta" syncable="YES"/>
+    </entity>
+    <entity name="EMRespuestasDefault" representedClassName="EMRespuestasDefault" syncable="YES">
+        <attribute name="idCuenta" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idPregunta" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idSondeo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idTienda" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="respuesta" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="EMRespuestasUsuario" representedClassName="EMRespuestasUsuario" syncable="YES">
+        <attribute name="idRespuesta" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="texto" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="emPregunta" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EMPregunta" inverseName="emRespuestasUsuario" inverseEntity="EMPregunta" syncable="YES"/>
+        <relationship name="emProducto" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EMProducto" syncable="YES"/>
+        <relationship name="emPull" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EMPull" inverseName="emRespuestasUsuario" inverseEntity="EMPull" syncable="YES"/>
+    </entity>
+    <entity name="EMSondeo" representedClassName="EMSondeo" syncable="YES">
+        <attribute name="capturaSKU" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="estatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="icono" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idSondeo" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="indice" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="obligatorio" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="emCuentas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EMCuenta" inverseName="emSondeos" inverseEntity="EMCuenta" syncable="YES"/>
+        <relationship name="emPreguntas" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EMPregunta" inverseName="emSondeo" inverseEntity="EMPregunta" syncable="YES"/>
+        <relationship name="emPull" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="EMPull" inverseName="emSondeo" inverseEntity="EMPull" syncable="YES"/>
+        <relationship name="emTiendas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EMTienda" inverseName="emSondeos" inverseEntity="EMTienda" syncable="YES"/>
+    </entity>
+    <entity name="EMTienda" representedClassName="EMTienda" syncable="YES">
+        <attribute name="banderaDefinirNombre" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="checkGPS" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="checkIn" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
+        <attribute name="checkOut" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="definirNombre" optional="YES" attributeType="Integer 64" syncable="YES"/>
+        <attribute name="estatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="icono" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idCadena" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="idTienda" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitud" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitud" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="num_fotos" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="rangoGPS" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="emCuentas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EMCuenta" inverseName="emTiendas" inverseEntity="EMCuenta" syncable="YES"/>
+        <relationship name="emProductos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EMProducto" inverseName="emTiendas" inverseEntity="EMProducto" syncable="YES"/>
+        <relationship name="emSondeos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EMSondeo" inverseName="emTiendas" inverseEntity="EMSondeo" syncable="YES"/>
+        <relationship name="emTiendasXdia" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EMTiendasXdia" inverseName="emTiendas" inverseEntity="EMTiendasXdia" syncable="YES"/>
+    </entity>
+    <entity name="EMTiendasXdia" representedClassName="EMTiendasXdia" syncable="YES">
+        <attribute name="idTiendasXdia" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="emTiendas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EMTienda" inverseName="emTiendasXdia" inverseEntity="EMTienda" syncable="YES"/>
+    </entity>
+    <entity name="EMUser" representedClassName="EMUser" syncable="YES">
+        <attribute name="fecha_vencimiento" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="idUsuario" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="udid_phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="usuario" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="version" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="emCuentas" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EMCuenta" inverseName="emUser" inverseEntity="EMCuenta" syncable="YES"/>
+    </entity>
+    <entity name="EMVersion" representedClassName="EMVersion" syncable="YES">
+        <attribute name="productos" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="productosXTienda" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="sondeos" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="sondeosXTienda" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tiendas" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tiendasXDia" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="emCuenta" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EMCuenta" inverseName="emVersion" inverseEntity="EMCuenta" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="EMCapacitacion" positionX="-27" positionY="135" width="128" height="120"/>
+        <element name="EMCategoria" positionX="-18" positionY="171" width="128" height="90"/>
+        <element name="EMCategoriaCapacitacion" positionX="-18" positionY="144" width="128" height="75"/>
+        <element name="EMCuenta" positionX="-360" positionY="54" width="128" height="465"/>
+        <element name="EMMarca" positionX="9" positionY="180" width="128" height="90"/>
+        <element name="EMMensajes" positionX="-27" positionY="135" width="128" height="120"/>
+        <element name="EMPendiente" positionX="223" positionY="123" width="128" height="435"/>
+        <element name="EMPregunta" positionX="-38" positionY="-156" width="128" height="193"/>
+        <element name="EMProducto" positionX="-27" positionY="162" width="128" height="270"/>
+        <element name="EMPull" positionX="0" positionY="162" width="128" height="105"/>
+        <element name="EMRespuesta" positionX="-18" positionY="144" width="128" height="105"/>
+        <element name="EMRespuestasDefault" positionX="124" positionY="-117" width="128" height="118"/>
+        <element name="EMRespuestasUsuario" positionX="-9" positionY="153" width="128" height="120"/>
+        <element name="EMSondeo" positionX="18" positionY="189" width="128" height="210"/>
+        <element name="EMTienda" positionX="-189" positionY="-162" width="128" height="315"/>
+        <element name="EMTiendasXdia" positionX="97" positionY="99" width="128" height="75"/>
+        <element name="EMUser" positionX="-560" positionY="369" width="128" height="150"/>
+        <element name="EMVersion" positionX="-200" positionY="606" width="128" height="150"/>
+    </elements>
+</model>

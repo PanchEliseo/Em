@@ -1,0 +1,31 @@
+//
+//  PrefixHeader.pch
+//  emetrix
+//
+//  Created by Patricia Blanco on 13/07/15.
+//  Copyright (c) 2015 evolve. All rights reserved.
+//
+
+#ifndef emetrix_PrefixHeader_pch
+#define emetrix_PrefixHeader_pch
+#import "EMConstants.h"
+#import "EMManagedObject.h"
+#import "EMUser.h"
+#import "EMTienda.h"
+#import "EMSondeo.h"
+#import "EMRespuestasUsuario.h"
+#import "EMRespuesta.h"
+#import "EMPull.h"
+#import "EMProducto.h"
+#import "EMPregunta.h"
+#import "EMMarca.h"
+#import "EMCuenta.h"
+#import "EMCategoria.h"
+#import "EMTiendasXdia.h"
+#import "EMPendiente.h"
+#import "EMPendiente+EMExtensions.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif
